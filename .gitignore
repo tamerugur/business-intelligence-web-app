@@ -1,0 +1,20 @@
+# Node.js specific
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# Environment variables
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+# IDE specific (add your specific editor/IDE files if needed)
+.vscode/

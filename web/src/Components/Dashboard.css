@@ -1,0 +1,312 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+}
+
+.dashboard-content {
+  width: 100%;
+  flex: 1; /* Make sure content takes available space */
+}
+
+.navbar-container {
+  flex-shrink: 0;
+}
+
+.employees-filters-container {
+  display: flex;
+  flex: 1;
+  overflow-y: hidden; /* Prevent vertical overflow */
+  box-sizing: border-box;
+}
+
+.filters-container {
+  width: 400px;
+  background-color: wheat;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion {
+  border: 3px solid wheat;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  background-color: #a2d2ff;
+  padding: 5px;
+}
+
+.accordion-header {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #a2d2ff;
+  background-color: #a2d2ff;
+  color: #333;
+}
+
+.accordion-content {
+  padding: 10px;
+  font-weight: 600;
+  background-color: #eaf4ff;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  width: calc(100% - 10px);
+  font-size: 0.9rem;
+  background-color: #fff;
+  border: none;
+  user-select: none;
+}
+
+.accordion-item-label {
+  flex: 1;
+  margin-left: -10px;
+  margin-top: 10px;
+}
+
+.accordion-item-checkbox {
+  width: 16px; 
+  height: 16px;
+  margin-right: 10px;
+}
+
+.accordion .accordion {
+  margin-left: 20px;
+}
+
+.accordion-duel .accordion-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.accordion-duel .accordion-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.employees-container {
+  display: flex;
+  flex: 1;
+  background-color: #f5deb3;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.employee-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.employee-form-container {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  max-height: 600px;
+  background-color: #a2d2ff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  flex: 1 1 100%;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  flex: 1 1 calc(50% - 10px); /* Adjusts to half width minus margin */
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.form-group input:last-child {
+  margin-right: 0; /* No margin for the last input */
+}
+
+.form-group input.full-width {
+  flex: 1 1 100%; /* Full width input */
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-container button,
+.btn-container a {
+  font-size: 25px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.btn-container a {
+  text-decoration: none;
+  display: flex;
+}
+
+.btn-container .btn-back {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+}
+
+.dropdown-toggle {
+  background-color: #0d6dfc;
+  width: 200px;
+  margin-right: 200px; /* Ensure full width of parent container */
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.dropdown-menu {
+  width: 200px; /* Match the width of the DropdownToggle */
+  box-sizing: border-box; /* Ensure padding is included in width */
+  
+}
+.dropdown-item {
+  font-size: 12px;
+}
+
+.dropdown-item:hover {
+  background-color: #7a9bff; /* Different color on hover */
+}
+
+
+.photo-upload-button {
+  background-color: #0d6dfc; /* Change to your desired color */
+  color: white; /* Change text color if needed */
+  border: none; /* Optional: remove border */
+}
+
+.photo-upload-button:hover {
+  background-color: #0056b3; /* Darker color for hover effect */
+}
+
+
+.dashboard-main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0; /* Ensure there's no gap */
+}
+
+.box {
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+}
+
+.dashboard-sort-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1400px;
+  height: 750px;
+  border: 1px solid #0056b3;
+}
+
+.dashboard-sort-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1400px;
+  height: 750px;
+  border: 1px solid #0056b3;
+}
+
+.sort-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Adjusts the alignment to the top */
+  height: 750px;
+  border: 1px solid #333;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.inner-sort {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0; /* No gaps between photos */
+  overflow-y: auto; /* Enables vertical scrolling if photos overflow */
+  max-height: calc(100% - 40px); /* Adjust to make space for the h2 */
+  width: 100%;
+}
+
+.employee-box {
+  width: 50px; /* Fixed width */
+  height: 50px; /* Fixed height */
+  border-radius: 8px;
+  margin: 0; /* No margin between photos */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}

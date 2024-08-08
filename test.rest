@@ -1,0 +1,13 @@
+GET http://localhost:3001/users
+
+###
+
+GET http://localhost:3001/users/test
+
+###
+
+POST http://localhost:3001/users/test-login
+
+###
+
+GET http://localhost:3001/employees/getemployees
