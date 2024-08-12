@@ -27,7 +27,7 @@ class UserController {
   async logout(req, res) {
     console.log("logout processing...");
     return res
-      .clearCookie("token", { path: '/' }) // Ensure the path matches where the cookie was set
+      .clearCookie("token", { path: '/' })
       .status(200)
       .json({ message: "Successfully logged out 😏 🍀" });
   }
@@ -45,7 +45,8 @@ class UserController {
   }
 
   async register(req, res){
-    const data = {username: req.username, password: req.password, }
+    const user = req.body;
+    if(userService.register(user)) return res.status(200).json({ message: "Register successful"});
   }
 }
 

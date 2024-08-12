@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const userRepository = new UserRepository();
 require("dotenv").config();
 class UserService {
-  async register(username, password, id, fullName, phoneNumber) {
+  async register(req) {
     const { usernameTaken, idTaken, phoneNumberTaken } =
-      await userRepository.registerControl(username, id, phoneNumber);
+      await userRepository.registerControl(req.username, req.id, req.phoneNumber);
 
     if (usernameTaken) {
       throw new Error("Someone with that username already exists.");
@@ -18,15 +18,10 @@ class UserService {
       throw new Error("You can only create one account with a phone number.");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(req.password, 10);
     try {
-      await userRepository.register({
-        username,
-        password: hashedPassword,
-        id,
-        fullName,
-        phoneNumber,
-      });
+      const response = {username: req.username, password: hashedPassword, phoneNumber: req.phoneNumber, id: req.id, phoneNumber: req.phoneNumber, fullName: req.fullName}
+      await userRepository.register(response);
     } catch (error) {
       throw error;
     }
