@@ -1,4 +1,3 @@
-// src/components/Filters.js
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Accord from "./Accord";
@@ -9,7 +8,6 @@ import {
   setTeamFilter, 
   setExperienceFilter, 
 } from '../store/employeesSlice';
-import "./components.css";
 
 const unitItems = [
   "Kurumsal Dijital Uygulamalar",
@@ -77,7 +75,7 @@ function Filters() {
   };
 
   return (
-    <div className="filters-container">
+    <div className="filters-container" style= {{marginTop: "10px", marginLeft: "5px", width: "calc(100% - 5px)"}}>
       <Accord 
         title="Unit" 
         className="accordion-duel" 

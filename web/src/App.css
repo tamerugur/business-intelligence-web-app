@@ -1,5 +1,7 @@
 .App {
+  height: 100vh;
   text-align: center;
+  background-color: rgb(245, 227, 227);
 }
 
 .dashboard-container {
@@ -49,11 +51,6 @@
 
 .form-container h1 {
   margin-bottom: 20px;
-}
-
-.app {
-  height: 100vh;
-  background-color: #3a86ff;
 }
 
 .id-input::-webkit-inner-spin-button,

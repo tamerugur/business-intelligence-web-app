@@ -160,7 +160,7 @@ function EmployeesForm() {
   };
 
   return (
-    <div className="employee-form-container" style={{ marginTop: "-40px" }}>
+    <div className="employee-form-container" style={{ marginTop: "-40px", backgroundColor: "#d90209" , color: "white"}}>
       <h1>Employee Details</h1>
       <form onSubmit={handleSubmit} style={{ fontSize: "30px" }}>
         <div className="form-group">
@@ -317,7 +317,7 @@ function EmployeesForm() {
                   style={{ marginLeft: "35px" }}
                   onClick={() => fileInputRef.current.click()}
                 >
-                  <label>Upload Photo</label>
+                  <label style ={{  cursor: "pointer"}}>Upload Photo</label>
                 </button>
                 <input
                   type="file"
@@ -335,7 +335,7 @@ function EmployeesForm() {
                 <button
                   type="submit"
                   className="btn btn-primary"
-                  style={{ width: "130px", marginTop: "15px" }}
+                  style={{ width: "130px", marginTop: "15px", backgroundColor: "#b20207" }}
               >
                 Submit
               </button>

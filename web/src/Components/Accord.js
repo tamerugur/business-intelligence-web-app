@@ -28,7 +28,7 @@ const Accord = ({ title, items, className, filterType, selectedFilter, onFilterC
   return (
     <div className={`accordion ${className}`}>
       <div className="accordion-header" onClick={toggleAccordion}>
-        <h3>{title}</h3>
+        <h3 style = {{color: "white"}}>{title}</h3>
       </div>
       {isOpen && (
         <div className="accordion-content">

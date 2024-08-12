@@ -16,7 +16,7 @@ function CustomNavBar() {
   const dispatch = useDispatch();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedSort, setSelectedSort] = useState("Sort By");
+  const [selectedSort, setSelectedSort] = useState("");
 
   const toggleDropdown = () => setDropdownOpen(prevState => !prevState);
 
@@ -41,34 +41,36 @@ function CustomNavBar() {
   const handleClearFilters = () => {
     dispatch(clearFilters());
     setSelectedSort("Sort By");
+    navigate('/dashboard/main');
   };
 
   const handleSortSelect = (item) => {
-    setSelectedSort(item); // Update local state
-    dispatch(setSort(item)); // Update Redux state
-    navigate('/dashboard/sort'); // Redirect
+    setSelectedSort(item);
+    dispatch(setSort(item));
+    navigate('/dashboard/sort');
   };
 
   const handleDashboardClick = () => {
-    dispatch(setSort("Sort By")); // Update Redux state
-    setSelectedSort("Sort By");
-    navigate('/dashboard/main'); // Redirect to DashboardMain
+    dispatch(setSort(""));
+    setSelectedSort("");
+    navigate('/dashboard/main');
   };
 
   return (
     <div style={{ width: "100%" }}>
       <Navbar
         style={{
-          backgroundColor: "#a2d2ff",
+          backgroundColor: "#d90209",
+          borderTop: "10px solid rgb(245, 227, 227)",
           fontSize: "25px",
           fontWeight: "500",
-          color: "red",
+          color: "white"
         }}
         light
         expand="md"
       >
         <NavbarBrand
-          style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "90px" }}
+          style={{ fontWeight: "bold", fontSize: "25px", marginLeft: "90px", color: "white",}}
           href="#"
         >
           Ziraat Teknoloji
@@ -82,7 +84,7 @@ function CustomNavBar() {
                   background: "none",
                   border: "none",
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "white",
                   fontSize: "20px",
                   cursor: "pointer",
                 }}
@@ -90,8 +92,10 @@ function CustomNavBar() {
                 Dashboard
               </button>
             </NavItem>
-            <NavItem style={{ marginRight: "20px" }}>
-              <Link className="nav-link" to="/dashboard/employees">
+            <NavItem style={{ marginRight: "20px",
+                              color: "white",
+             }}>
+              <Link className="nav-link" to="/dashboard/employees" style = {{color: "white", fontSize: "20px", fontWeight: "bold"}}>
                 Add Employee
               </Link>
             </NavItem>
@@ -104,7 +108,7 @@ function CustomNavBar() {
                   background: "none",
                   border: "none",
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "white",
                   fontSize: "20px",
                   cursor: "pointer",
                 }}
@@ -119,14 +123,14 @@ function CustomNavBar() {
                     background: "none",
                     border: "none",
                     fontWeight: "bold",
-                    color: "#000",
+                    color: "white",
                     fontSize: "20px",
                     cursor: "pointer",
                     marginRight: "0px",
                   }}
                   caret
                 >
-                  {selectedSort}
+                  Sort by: {selectedSort}
                 </DropdownToggle>
                 <DropdownMenu>
                   {sortByItems.map(item => (
@@ -144,7 +148,7 @@ function CustomNavBar() {
                   background: "none",
                   border: "none",
                   fontWeight: "bold",
-                  color: "#000",
+                  color: "white",
                   fontSize: "20px",
                   cursor: "pointer",
                 }}

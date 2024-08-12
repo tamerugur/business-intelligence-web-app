@@ -34,11 +34,10 @@
   flex: 1 1 100%; /* Full width input */
 }
 
-.accordion {
+/* .accordion {
   border: 3px solid wheat;
   border-radius: 10px;
   margin-bottom: 5px;
-  background-color: #a2d2ff;
   padding: 5px;
 }
 
@@ -100,7 +99,7 @@
   background-color: #fff;
   box-sizing: border-box;
   margin: 0;
-}
+} */
 
 .btn-container {
   display: flex;

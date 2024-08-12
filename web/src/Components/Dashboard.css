@@ -24,25 +24,25 @@
 
 .filters-container {
   width: 400px;
-  background-color: wheat;
+  background-color: rgb(245, 227, 227);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
 .accordion {
-  border: 3px solid wheat;
+  border: 3px solid rgb(247, 214, 214);
   border-radius: 10px;
   margin-bottom: 5px;
-  background-color: #a2d2ff;
+  background-color: #d90209;
   padding: 5px;
 }
 
 .accordion-header {
   padding: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #a2d2ff;
-  background-color: #a2d2ff;
+  border-bottom: 1px solid #d90209;
+  background-color: #d90209;
   color: #333;
 }
 
@@ -101,7 +101,7 @@
 .employees-container {
   display: flex;
   flex: 1;
-  background-color: #f5deb3;
+  background-color: rgb(245, 227, 227);
   overflow-y: hidden;
   overflow-x: hidden;
   justify-content: center;
@@ -187,7 +187,7 @@
 }
 
 .dropdown-toggle {
-  background-color: #0d6dfc;
+  background-color: #bf0f1f;
   width: 200px;
   margin-right: 200px; /* Ensure full width of parent container */
   font-size: 18px;
@@ -205,12 +205,12 @@
 }
 
 .dropdown-item:hover {
-  background-color: #7a9bff; /* Different color on hover */
+  background-color: white; /* Different color on hover */
 }
 
 
 .photo-upload-button {
-  background-color: #0d6dfc; /* Change to your desired color */
+  background-color: #bf0f1f; /* Change to your desired color */
   color: white; /* Change text color if needed */
   border: none; /* Optional: remove border */
 }
@@ -237,7 +237,6 @@
   justify-content: space-between;
   width: 1400px;
   height: 750px;
-  border: 1px solid #0056b3;
 }
 
 .dashboard-sort-container {
@@ -245,7 +244,6 @@
   justify-content: space-between;
   width: 1400px;
   height: 750px;
-  border: 1px solid #0056b3;
 }
 
 .sort-container {
@@ -254,7 +252,7 @@
   align-items: center;
   justify-content: flex-start; /* Adjusts the alignment to the top */
   height: 750px;
-  border: 1px solid #333;
+  border: 3px solid #d90209;
   text-align: center;
   overflow: hidden;
   padding: 0 10px;
@@ -309,4 +307,15 @@
   right: 10px;
   font-size: 24px;
   cursor: pointer;
+}
+
+.btn-secondary:hover,
+.btn-primary:hover{
+  background-color: #b20207;
+  border: 2px solid #b20207;
+  cursor: pointer;
+}
+
+.btn-secondary,.btn-primary,.btn {
+  border: 2px solid #b20207;
 }

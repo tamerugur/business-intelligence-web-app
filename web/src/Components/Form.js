@@ -79,20 +79,20 @@ function Form() {
           <button
             type="submit"
             className="btn btn-primary"
-            style={{ fontSize: "25px", width: "130px", padding: "10px 20px", marginLeft: "80px"}}
+            style={{ fontSize: "25px", width: "130px", padding: "10px 20px", marginLeft: "80px", backgroundColor: "#d90209"}}
           >
             Login
           </button>
           <Link to="/register" style={{ textDecoration: 'none', marginLeft: '10px', width: '130px' }}>
             <button
+              className="btn btn-primary"
               style={{
                 fontSize: "25px",
                 marginLeft: "30px",
                 width: "100%",
                 padding: "10px 20px",
-                backgroundColor: '#007bff',
+                backgroundColor: '#d90209',
                 color: 'white',
-                border: 'none',
                 cursor: 'pointer',
                 borderRadius: '5px'
               }}

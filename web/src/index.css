@@ -17,7 +17,7 @@ html, body {
   flex-direction: column;
 }
 
-/* Add this if you have a main component */
+
 .main-component {
   flex: 1;
   display: flex;

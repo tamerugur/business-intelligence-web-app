@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3a86ff; /* Ensure the background color covers the whole viewport */
+  background-color: rgb(245, 227, 227);
 }
   
   .form-container, .register-form-container {
@@ -24,13 +24,13 @@
     width: 50vh;
     min-height: 400px;
     min-width: 400px;
-    background-color: #d01f6c;
+    background-color: #d90209;
   }
   
   .register-form-container {
     height: 60vh;
     width: 60vh;
-    background-color: #d01f6c;
+    background-color: #d90209;
   }
   
   .employee-container {

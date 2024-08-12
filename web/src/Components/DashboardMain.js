@@ -76,7 +76,6 @@ function DashboardMain() {
             <p>Unit: {selectedEmployee.unit}</p>
             <p>Team: {selectedEmployee.team}</p>
             <p>Experience: {selectedEmployee.duration}</p>
-            {/* Add more employee details as needed */}
           </div>
         </div>
       )}

@@ -155,6 +155,7 @@ function RegisterForm() {
               width: "130px",
               padding: "10px 20px",
               marginLeft: "10px",
+              backgroundColor: "#b20207"
             }}
           >
             Register
@@ -175,7 +176,7 @@ function RegisterForm() {
                 width: "190px",
                 maxWidth: "190px",
                 padding: "10px 20px",
-                backgroundColor: "#007bff",
+                backgroundColor: "#b20207",
                 color: "white",
                 border: "none",
                 cursor: "pointer",

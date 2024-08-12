@@ -52,6 +52,7 @@ function DashboardSort() {
 
     employees.forEach(employee => {
       if(selectedSort === "Experience"){
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         selectedSort = "duration";
       }
       const key = employee[selectedSort.toLowerCase()];
