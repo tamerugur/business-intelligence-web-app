@@ -70,7 +70,7 @@ function DashboardMain() {
         <div className='modal' onClick={handleCloseModal}>
           <div className='modal-content' onClick={(e) => e.stopPropagation()}>
             <span className='close' onClick={handleCloseModal}>&times;</span>
-            <h2>{selectedEmployee.name}</h2>
+            <h2>{selectedEmployee.fullName}</h2>
             <p>Age: {selectedEmployee.age}</p>
             <p>Gender: {selectedEmployee.gender}</p>
             <p>Unit: {selectedEmployee.unit}</p>

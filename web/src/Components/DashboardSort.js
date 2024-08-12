@@ -112,7 +112,7 @@ function DashboardSort() {
         <div className='modal'>
           <div className='modal-content'>
             <span className='close' onClick={closeModal}>&times;</span>
-            <h2>{selectedEmployee.name}</h2>
+            <h2>{selectedEmployee.fullName}</h2>
             <p>Unit: {selectedEmployee.unit}</p>
             <p>Gender: {selectedEmployee.gender}</p>
             <p>Age: {selectedEmployee.age}</p>
