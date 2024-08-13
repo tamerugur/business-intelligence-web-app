@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchEmployees } from '../store/employeesSlice';
-import { selectFilteredEmployees } from '../store/selectors';
-import './Dashboard.css';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchEmployees } from "../store/employeesSlice";
+import { selectFilteredEmployees } from "../store/selectors";
+import "./Dashboard.css";
 
 function DashboardMain() {
   const dispatch = useDispatch();
@@ -11,10 +11,17 @@ function DashboardMain() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   useEffect(() => {
-    if (employeeStatus === 'idle') {
+    if (employeeStatus === "idle") {
       dispatch(fetchEmployees());
     }
   }, [employeeStatus, dispatch]);
+
+  useEffect(() => {
+    console.log("DashboardMain mounted");
+    return () => {
+      console.log("DashboardMain unmounted");
+    };
+  }, []);
 
   const handlePhotoClick = (employee) => {
     setSelectedEmployee(employee);
@@ -24,11 +31,11 @@ function DashboardMain() {
     setSelectedEmployee(null);
   };
 
-  if (employeeStatus === 'loading') {
+  if (employeeStatus === "loading") {
     return <div style={{ fontSize: "30px" }}>Loading...</div>;
   }
 
-  if (employeeStatus === 'failed') {
+  if (employeeStatus === "failed") {
     return <div style={{ fontSize: "30px" }}>Error loading employees.</div>;
   }
 
@@ -36,28 +43,38 @@ function DashboardMain() {
   const boxWidth = boxesPerRow < 12 ? 80 : 1000 / (boxesPerRow + 10);
 
   const containerWidth = boxWidth * boxesPerRow;
-  const containerHeight = containerWidth - (Math.sqrt(employees.length) !== Math.floor(Math.sqrt(employees.length)) ? boxWidth : 0);
+  const containerHeight =
+    containerWidth -
+    (Math.sqrt(employees.length) !== Math.floor(Math.sqrt(employees.length))
+      ? boxWidth
+      : 0);
 
   return (
     <div>
       <div
-        className='dashboard-main-container'
-        style={{ width: `${containerWidth}px`, height: `${containerHeight}px`, margin: '0px', display: 'flex', flexWrap: 'wrap' }}
+        className="dashboard-main-container"
+        style={{
+          width: `${containerWidth}px`,
+          height: `${containerHeight}px`,
+          margin: "0px",
+          display: "flex",
+          flexWrap: "wrap",
+        }}
       >
         {employees.length > 0 ? (
-          employees.map((employee, index) => (
+          employees.map((employee) => (
             <div
-              key={index}
-              className='box'
+              key={employee.id} // Assuming employee.id is unique
+              className="box"
               onClick={() => handlePhotoClick(employee)}
-              style={{ 
-                width: `${boxWidth}px`, 
-                height: `${boxWidth}px`, 
+              style={{
+                width: `${boxWidth}px`,
+                height: `${boxWidth}px`,
                 backgroundImage: `url(${employee.photo})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                borderRadius: '8px',
-                cursor: 'pointer' // Change cursor to pointer
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                borderRadius: "8px",
+                cursor: "pointer",
               }}
             />
           ))
@@ -67,15 +84,42 @@ function DashboardMain() {
       </div>
 
       {selectedEmployee && (
-        <div className='modal' onClick={handleCloseModal}>
-          <div className='modal-content' onClick={(e) => e.stopPropagation()}>
-            <span className='close' onClick={handleCloseModal}>&times;</span>
-            <h2>{selectedEmployee.fullName}</h2>
-            <p>Age: {selectedEmployee.age}</p>
-            <p>Gender: {selectedEmployee.gender}</p>
-            <p>Unit: {selectedEmployee.unit}</p>
-            <p>Team: {selectedEmployee.team}</p>
-            <p>Experience: {selectedEmployee.duration}</p>
+        <div className="modal" onClick={handleCloseModal}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            style={{ display: "flex", gap: "20px", flexDirection: "row" }}
+          >
+            <span
+              className="close"
+              onClick={handleCloseModal}
+              style={{
+                fontSize: "35px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                color: "#333", 
+              }}
+            >
+              &times;
+            </span>
+            <div>
+              <h2>{selectedEmployee.fullName}</h2>
+              <p>Age: {selectedEmployee.age}</p>
+              <p>Gender: {selectedEmployee.gender}</p>
+              <p>Unit: {selectedEmployee.unit}</p>
+              <p>Team: {selectedEmployee.team}</p>
+              <p>Experience: {selectedEmployee.duration}</p>
+            </div>
+            <div
+              style={{
+                marginTop: "35px",
+                width: "250px",
+                height: "225px",
+                backgroundImage: `url(${selectedEmployee.photo})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></div>
           </div>
         </div>
       )}

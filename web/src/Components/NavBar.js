@@ -40,7 +40,7 @@ function CustomNavBar() {
 
   const handleClearFilters = () => {
     dispatch(clearFilters());
-    setSelectedSort("Sort By");
+    setSelectedSort("");
     navigate('/dashboard/main');
   };
 

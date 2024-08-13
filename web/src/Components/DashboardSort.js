@@ -16,6 +16,7 @@ function DashboardSort() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    console.log('Employee status:', employeeStatus);
     if (employeeStatus === 'idle') {
       dispatch(fetchEmployees());
     }
@@ -82,6 +83,10 @@ function DashboardSort() {
     return <div style={{ fontSize: "30px" }}>Error loading employees.</div>;
   }
 
+  if (employeeStatus !== 'succeeded') {
+    return <div className="loading-message">Loading...</div>;
+  }
+  
   const containerWidth = itemsArray.length > 0 ? 1400 / itemsArray.length : 0;
 
   return (
