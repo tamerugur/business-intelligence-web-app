@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/authSlice';
@@ -11,6 +11,35 @@ function Form() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const checkToken = async () => {
+      console.log(document.cookie);
+  
+      try {
+        const response = await fetch('http://localhost:3001/users/verify-token', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+          if (data.user) {
+            navigate('/dashboard/main'); 
+          }
+        } else {
+          console.error('Token verification failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+  
+    checkToken();
+  }, [navigate]);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -28,7 +57,6 @@ function Form() {
 
       if (response.ok) {
         document.cookie = `token=${data.token}; path=/; SameSite=Lax`;
-        console.log("Logged in user:", data.user);
         dispatch(login(data.user));
         navigate('/dashboard/main');
       } else {
@@ -44,10 +72,10 @@ function Form() {
     <div className="form-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit} style={{ fontSize: "30px" }}>
-        <div className="form-group" style = {{marginLeft: "80px"}}>
+        <div className="form-group" style={{ marginLeft: "80px" }}>
           <label>Username</label>
           <input
-            type="text" 
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="form-control username-input"
@@ -60,7 +88,7 @@ function Form() {
             }}
           />
         </div>
-        <div className="form-group" style = {{marginLeft: "80px"}}>
+        <div className="form-group" style={{ marginLeft: "80px" }}>
           <label>Password</label>
           <input
             type="password"
@@ -79,7 +107,7 @@ function Form() {
           <button
             type="submit"
             className="btn btn-primary"
-            style={{ fontSize: "25px", width: "130px", padding: "10px 20px", marginLeft: "80px", backgroundColor: "#d90209"}}
+            style={{ fontSize: "25px", width: "130px", padding: "10px 20px", marginLeft: "80px", backgroundColor: "#d90209" }}
           >
             Login
           </button>

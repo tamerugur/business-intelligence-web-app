@@ -64,7 +64,7 @@ function DashboardMain() {
         {employees.length > 0 ? (
           employees.map((employee) => (
             <div
-              key={employee.id} // Assuming employee.id is unique
+              key={employee._id}
               className="box"
               onClick={() => handlePhotoClick(employee)}
               style={{

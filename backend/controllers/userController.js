@@ -1,12 +1,13 @@
 const UserService = require("../services/userService");
 const userService = new UserService();
-
+const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
+require('dotenv').config();
 class UserController {
   async login(req, res) {
     console.log("controller check");
     try {
       const { username, password } = req.body;
-      console.log("test");
       const user = await userService.login(username, password);
   
       if (!user) {
@@ -48,6 +49,28 @@ class UserController {
     const user = req.body;
     if(userService.register(user)) return res.status(200).json({ message: "Register successful"});
   }
+  
+  async verifyToken(req, res) {
+    try {
+      const token = req.cookies.token; 
+      if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+      }
+  
+      const decoded = jwt.verify(token, process.env.secret);
+  
+      const user = await User.findById(decoded._id);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json({ user });
+    } catch (error) {
+      console.error('Error verifying token:', error);
+      res.status(403).json({ message: 'Invalid token' });
+    }
+  }
+  
 }
 
 module.exports = UserController;

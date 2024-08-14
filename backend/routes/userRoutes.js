@@ -10,7 +10,10 @@ router.post("/login", (req, res) => userController.login(req, res));
 
 router.post("/register",  (req, res) => userController.register(req, res));
 
+
 router.get("/:username", (req, res) => userController.findByUsername(req, res));
+
+router.post("/verify-token", (req, res) => userController.verifyToken(req, res));
 
 router.get("/", (req, res) => {
   console.log(req.cookies);
